@@ -15,8 +15,15 @@ module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    htmlPartialsDir: 'client/public/partials',
     lessDir: 'client/public/stylesheets/src',
-    cssDir: 'client/public/stylesheets',
+    cssBuildDir: 'client/public/stylesheets/build',
+    jsBuildDir: 'client/public/js/build',
+    clean: {
+      build: {
+        src: ["<%=cssBuildDir%>", "<%=jsBuildDir%>"]
+      }
+    },
     jshint: {
       client: clientScripts,
       server: serverScripts,
@@ -28,24 +35,24 @@ module.exports = function (grunt) {
         options: {
           compress: false,
           sourceMap: true,
-          sourceMapFilename: '<%=cssDir%>/app.css.map',
-          sourceMapURL: '/stylesheets/app.css.map',
+          sourceMapFilename: '<%=cssBuildDir%>/app.css.map',
+          sourceMapURL: '/stylesheets/build/app.css.map',
           sourceMapBasepath: 'client/public',
           sourceMapRootpath: '/'
         },
-        files: { '<%=cssDir%>/app.css': '<%=lessDir%>/main.less'}
+        files: { '<%=cssBuildDir%>/app.css': '<%=lessDir%>/main.less'}
       },
       dist: {
         options: {
           compress: true,
           sourceMap: true,
-          sourceMapFilename: '<%=cssDir%>/app.min.css.map',
-          sourceMapURL: '/stylesheets/app.min.css.map',
+          sourceMapFilename: '<%=cssBuildDir%>/app.min.css.map',
+          sourceMapURL: '/stylesheets/build/app.min.css.map',
           sourceMapBasepath: 'client/public',
           sourceMapRootpath: '/',
           banner: '/*! This is my banner. */ \n'
         },
-        files: { '<%=cssDir%>/app.min.css': '<%=lessDir%>/main.less'}
+        files: { '<%=cssBuildDir%>/app.min.css': '<%=lessDir%>/main.less'}
       }
     },
     uglify: {
@@ -54,7 +61,7 @@ module.exports = function (grunt) {
           sourceMap: true,
         },
         files: {
-          'client/public/js/client.min.js': clientScripts
+          '<%=jsBuildDir%>/client.min.js': clientScripts
         }
       }
     },
@@ -62,7 +69,7 @@ module.exports = function (grunt) {
       myApp: {
         cwd: 'client/public',
         src: 'partials/*.html',
-        dest: 'client/public/js/ng-app-precache.js',
+        dest: '<%=jsBuildDir%>/ng-app-precache.js',
         options: {
           prefix: '/',
           htmlmin: {
@@ -80,7 +87,7 @@ module.exports = function (grunt) {
     },
     watch: {
       partials: {
-        files: 'client/public/partials/*.html',
+        files: '<%=htmlPartialsDir%>/*.html',
         tasks: ['ngtemplates', 'uglify:client'],
         options: {
           spawn: false,
@@ -103,7 +110,7 @@ module.exports = function (grunt) {
         },
       },
       css: {
-        files: '<%=lessDir%>/*.less',
+        files: '<%=lessDir%>/**/*.less',
         tasks: ['less'],
       },
     },
