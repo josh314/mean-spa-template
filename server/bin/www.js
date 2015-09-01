@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-var debug = require('debug')('jdninja');
+var debug = require('debug')('my-project');
 var app = require('../../server');
 
 app.set('port', process.env.PORT || 9111);

@@ -1,5 +1,3 @@
-var api = require('./api');
-
 /* This module consumes an returns a sub-router with most of the application-specific routing.
     Its one argument is a context object to be used during templating  */
 module.exports = function(app, context) {
