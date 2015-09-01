@@ -25,9 +25,6 @@
         states.push({ name:'main.stuff2', url: '/stuff2', templateUrl: '/partials/_stuff2.html'});
         states.push({ name:'main.stuff2', url: '/stuff3', templateUrl: '/partials/_stuff3.html'});
 
-        // blog page
-        states.push({ name:'main.more', url: '/more', templateUrl: '/partials/_more.html'});
-
         angular.forEach(states, function(state) { $stateProvider.state(state); });
   }]);
 })();

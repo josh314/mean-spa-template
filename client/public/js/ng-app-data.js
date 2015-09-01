@@ -14,7 +14,6 @@
           {title: "Stuff 3", route: "/stuff3", state:"main.stuff3"},
         ]
       },
-      {title: "Blog", route: "/blog", state:"main.blog"},
       {title: "About", route: "/about", state:"main.about"},
     ]
   };
