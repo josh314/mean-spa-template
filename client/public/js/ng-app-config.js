@@ -21,9 +21,9 @@
         states.push({ name:'main.about', url: '/about', templateUrl: '/partials/_about.html'});
 
         // Stuff pages
-        states.push({ name:'main.stuff1', url: '/stuff1', templateUrl: '/partials/_stuff1.html'});
-        states.push({ name:'main.stuff2', url: '/stuff2', templateUrl: '/partials/_stuff2.html'});
-        states.push({ name:'main.stuff2', url: '/stuff3', templateUrl: '/partials/_stuff3.html'});
+        states.push({ name:'main.foo', url: '/foo', templateUrl: '/partials/_foo.html'});
+        states.push({ name:'main.bar', url: '/bar', templateUrl: '/partials/_bar.html'});
+        states.push({ name:'main.baz', url: '/baz', templateUrl: '/partials/_baz.html'});
 
         angular.forEach(states, function(state) { $stateProvider.state(state); });
   }]);

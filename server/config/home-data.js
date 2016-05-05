@@ -4,7 +4,7 @@ module.exports =
   description: "Can anything really have, like, a description, man? Ya know, if you think about it?",
   dev: {
     stylesheets: [
-      "/stylesheets/app.css"
+      "/stylesheets/build/app.css"
     ],
     scripts: {
       ext: [
@@ -21,7 +21,7 @@ module.exports =
         "/js/ng-app-init.js",
         "/js/ng-app-data.js",
         "/js/ng-app-config.js",
-        "/js/ng-app-precache.js",
+        "/js/build/ng-app-precache.js",
         "/js/ng-app-run.js",
         "/js/ng-app.js",
       ]
@@ -29,7 +29,7 @@ module.exports =
   },
   prod: {
     stylesheets: [
-      "/stylesheets/app.min.css"
+      "/stylesheets/build/app.min.css"
     ],
     scripts: {
       ext: [
@@ -41,7 +41,7 @@ module.exports =
         "//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.min.js",
       ],
       local: [
-        "/js/client.min.js"
+        "/js/build/client.min.js"
       ]
     }
   },
