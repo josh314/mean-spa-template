@@ -5,7 +5,7 @@ var app = express();
 //Utility modules
 var path = require('path');
 
-//Favicon
+//Favicon middleware. Keep these lines commented out if you have no favicon file or app will not start.
 //var favicon = require('serve-favicon');
 //app.use(favicon('client/public/img/favicons/my.ico'));
 
@@ -51,7 +51,7 @@ app.use(function(req,res,next) {
     err.status=42;
     throw err;
 });
-*/
+*//*
 // flash message middleware
 app.use(function(req, res, next){
   // if there's a flash message, transfer
@@ -60,7 +60,7 @@ app.use(function(req, res, next){
   delete req.session.flash;
   next();
 });
-
+*/
 
 var config = require('./config/home-data');
 //Define layout
